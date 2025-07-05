@@ -44,7 +44,7 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="animate-fadeInUp">
               <Image
-                src="/placeholder.svg?height=400&width=600"
+                src="https://i.pinimg.com/736x/4d/dd/cf/4dddcfc826925d62934cefdb6e331fd4.jpg"
                 alt="About NGO"
                 width={600}
                 height={400}

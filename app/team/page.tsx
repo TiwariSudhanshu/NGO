@@ -154,7 +154,7 @@ export default function TeamPage() {
                 <CardContent className="p-6">
                   <div className="relative mb-6">
                     <Image
-                      src={member.image || "/placeholder.svg"}
+                      src="https://i.pinimg.com/736x/9e/83/75/9e837528f01cf3f42119c5aeeed1b336.jpg"
                       alt={member.name}
                       width={300}
                       height={300}
@@ -204,7 +204,7 @@ export default function TeamPage() {
               <Card key={volunteer.id} className="interactive-card text-center">
                 <CardContent className="p-6">
                   <Image
-                    src={volunteer.image || "/placeholder.svg"}
+                    src="https://i.pinimg.com/736x/9e/83/75/9e837528f01cf3f42119c5aeeed1b336.jpg"
                     alt={volunteer.name}
                     width={200}
                     height={200}
