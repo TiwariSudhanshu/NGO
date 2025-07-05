@@ -1,0 +1,80 @@
+{
+  "name": "Seva Sansthan - Community Service NGO",
+  "short_name": "Seva Sansthan",
+  "description": "A dedicated NGO working for community service, education, healthcare, and environmental conservation in Bhopal, Madhya Pradesh.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#16a34a",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "lang": "en",
+  "categories": ["social", "education", "health", "environment"],
+  "icons": [
+    {
+      "src": "/placeholder-logo.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/placeholder-logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/placeholder-logo.png",
+      "sizes": "72x72",
+      "type": "image/png"
+    },
+    {
+      "src": "/placeholder-logo.png",
+      "sizes": "96x96",
+      "type": "image/png"
+    },
+    {
+      "src": "/placeholder-logo.png",
+      "sizes": "128x128",
+      "type": "image/png"
+    },
+    {
+      "src": "/placeholder-logo.png",
+      "sizes": "144x144",
+      "type": "image/png"
+    },
+    {
+      "src": "/placeholder-logo.png",
+      "sizes": "152x152",
+      "type": "image/png"
+    },
+    {
+      "src": "/placeholder-logo.png",
+      "sizes": "384x384",
+      "type": "image/png"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "About Us",
+      "short_name": "About",
+      "description": "Learn about Seva Sansthan",
+      "url": "/about",
+      "icons": [{ "src": "/placeholder-logo.png", "sizes": "96x96" }]
+    },
+    {
+      "name": "Donate",
+      "short_name": "Donate",
+      "description": "Support our cause",
+      "url": "/donate",
+      "icons": [{ "src": "/placeholder-logo.png", "sizes": "96x96" }]
+    },
+    {
+      "name": "Contact",
+      "short_name": "Contact",
+      "description": "Get in touch with us",
+      "url": "/contact",
+      "icons": [{ "src": "/placeholder-logo.png", "sizes": "96x96" }]
+    }
+  ]
+} 

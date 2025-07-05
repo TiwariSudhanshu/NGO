@@ -2,9 +2,9 @@
 
 import { useLanguage } from "@/components/language-provider"
 import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { Calendar, MapPin, Clock, Users, ArrowRight } from "lucide-react"
+import { Calendar, MapPin, Clock, Users, ArrowRight, CheckCircle, Star } from "lucide-react"
 import Image from "next/image"
 
 export default function EventsPage() {
@@ -17,7 +17,7 @@ export default function EventsPage() {
       date: "15 जनवरी 2024",
       time: "10:00 AM - 4:00 PM",
       location: "सामुदायिक केंद्र, भोपाल",
-      description: "मुफ्त स्वास्थ्य जांच और दवाइयों का वितरण",
+      description: "समुदाय के लिए मुफ्त स्वास्थ्य जांच और दवा वितरण",
       image: "/placeholder.svg?height=200&width=300",
       category: "स्वास्थ्य",
       attendees: "200+ लोग",
@@ -28,18 +28,18 @@ export default function EventsPage() {
       date: "22 जनवरी 2024",
       time: "7:00 AM - 11:00 AM",
       location: "भोज वेटलैंड, भोपाल",
-      description: "500 पेड़ों का रोपण और पर्यावरण जागरूकता",
+      description: "500 पेड़ लगाना और पर्यावरण जागरूकता अभियान",
       image: "/placeholder.svg?height=200&width=300",
       category: "पर्यावरण",
       attendees: "100+ स्वयंसेवक",
     },
     {
       id: 3,
-      title: "शिक्षा सामग्री वितरण",
+      title: "शैक्षिक सामग्री वितरण",
       date: "28 जनवरी 2024",
       time: "11:00 AM - 2:00 PM",
       location: "सरकारी स्कूल, सीहोर",
-      description: "जरूरतमंद बच्चों को किताबें और स्टेशनरी",
+      description: "जरूरतमंद बच्चों को किताबें और स्टेशनरी प्रदान करना",
       image: "/placeholder.svg?height=200&width=300",
       category: "शिक्षा",
       attendees: "300+ बच्चे",
@@ -49,7 +49,7 @@ export default function EventsPage() {
   const recentNews = [
     {
       id: 1,
-      title: "सेवा संस्थान को मिला राज्य स्तरीय पुरस्कार",
+      title: "सेवा संस्थान को राज्य स्तरीय पुरस्कार मिला",
       date: "5 जनवरी 2024",
       summary: "सामाजिक सेवा के क्षेत्र में उत्कृष्ट कार्य के लिए मध्य प्रदेश सरकार द्वारा सम्मानित",
       image: "/placeholder.svg?height=150&width=250",
@@ -65,7 +65,7 @@ export default function EventsPage() {
     },
     {
       id: 3,
-      title: "नया शिक्षा केंद्र का उद्घाटन",
+      title: "नए शिक्षा केंद्र का उद्घाटन",
       date: "20 दिसंबर 2023",
       summary: "इंदौर में नए शिक्षा केंद्र की शुरुआत, 100 बच्चों को मिलेगी मुफ्त शिक्षा",
       image: "/placeholder.svg?height=150&width=250",
@@ -92,84 +92,93 @@ export default function EventsPage() {
       case "पुरस्कार":
         return "bg-yellow-100 text-yellow-800"
       default:
-        return "bg-gray-100 text-gray-800"
+        return "bg-slate-100 text-slate-800"
     }
   }
 
   return (
-    <div className="min-h-screen py-12">
-      <div className="container mx-auto px-4">
-        {/* Header */}
-        <div className="text-center mb-16">
-          <h1
-            className="text-4xl font-bold text-gray-800 mb-4"
-            style={{ fontFamily: "Noto Sans Devanagari, sans-serif" }}
-          >
-            {t("eventsTitle")}
-          </h1>
-          <p
-            className="text-xl text-gray-600 max-w-3xl mx-auto"
-            style={{ fontFamily: "Noto Sans Devanagari, sans-serif" }}
-          >
-            हमारे आगामी कार्यक्रमों में भाग लें और हाल की गतिविधियों की जानकारी प्राप्त करें
-          </p>
+    <div className="min-h-screen">
+      {/* Hero Section */}
+      <section className="section-padding-lg bg-gradient-to-br from-blue-50 via-white to-green-50">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h1 className="text-5xl lg:text-6xl font-bold text-slate-900 mb-6 leading-tight">
+              {t("eventsTitle")}
+            </h1>
+            <p className="text-xl text-slate-600 mb-8 leading-relaxed max-w-3xl mx-auto">
+              {t("eventsSubtitle")}
+            </p>
+            <div className="flex items-center justify-center space-x-6 text-sm text-slate-600">
+              <div className="flex items-center space-x-2">
+                <CheckCircle className="h-4 w-4 text-green-600" />
+                <span>{t("freeEvents")}</span>
+              </div>
+              <div className="flex items-center space-x-2">
+                <CheckCircle className="h-4 w-4 text-green-600" />
+                <span>{t("openToAll")}</span>
+              </div>
+              <div className="flex items-center space-x-2">
+                <Star className="h-4 w-4 text-yellow-500" />
+                <span>{t("communityFocused")}</span>
+              </div>
+            </div>
+          </div>
         </div>
+      </section>
 
-        {/* Upcoming Events */}
-        <div className="mb-16">
-          <h2
-            className="text-3xl font-bold text-gray-800 mb-8"
-            style={{ fontFamily: "Noto Sans Devanagari, sans-serif" }}
-          >
-            {t("upcomingEvents")}
-          </h2>
+      {/* Upcoming Events */}
+      <section className="section-padding bg-white">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold text-slate-900 mb-4">{t("upcomingEvents")}</h2>
+            <p className="text-lg text-slate-600 max-w-2xl mx-auto">
+              {t("upcomingEventsSubtitle")}
+            </p>
+          </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {upcomingEvents.map((event) => (
-              <Card key={event.id} className="hover:shadow-lg transition-shadow">
+              <Card key={event.id} className="interactive-card overflow-hidden">
                 <div className="relative">
                   <Image
                     src={event.image || "/placeholder.svg"}
                     alt={event.title}
                     width={300}
                     height={200}
-                    className="w-full h-48 object-cover rounded-t-lg"
+                    className="w-full h-48 object-cover"
                   />
                   <Badge className={`absolute top-4 left-4 ${getCategoryColor(event.category)}`}>
                     {event.category}
                   </Badge>
                 </div>
-                <CardHeader>
-                  <CardTitle className="text-xl" style={{ fontFamily: "Noto Sans Devanagari, sans-serif" }}>
+                <CardContent className="p-6">
+                  <h3 className="text-xl font-bold text-slate-900 mb-3">
                     {event.title}
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-gray-600 mb-4" style={{ fontFamily: "Noto Sans Devanagari, sans-serif" }}>
+                  </h3>
+                  <p className="text-slate-600 mb-4 leading-relaxed">
                     {event.description}
                   </p>
-                  <div className="space-y-2 text-sm text-gray-500 mb-4">
+                  <div className="space-y-2 text-sm text-slate-500 mb-4">
                     <div className="flex items-center space-x-2">
                       <Calendar className="h-4 w-4" />
-                      <span style={{ fontFamily: "Noto Sans Devanagari, sans-serif" }}>{event.date}</span>
+                      <span>{event.date}</span>
                     </div>
                     <div className="flex items-center space-x-2">
                       <Clock className="h-4 w-4" />
-                      <span style={{ fontFamily: "Noto Sans Devanagari, sans-serif" }}>{event.time}</span>
+                      <span>{event.time}</span>
                     </div>
                     <div className="flex items-center space-x-2">
                       <MapPin className="h-4 w-4" />
-                      <span style={{ fontFamily: "Noto Sans Devanagari, sans-serif" }}>{event.location}</span>
+                      <span>{event.location}</span>
                     </div>
                     <div className="flex items-center space-x-2">
                       <Users className="h-4 w-4" />
-                      <span style={{ fontFamily: "Noto Sans Devanagari, sans-serif" }}>{event.attendees}</span>
+                      <span>{event.attendees}</span>
                     </div>
                   </div>
                   <Button
-                    className="w-full bg-green-600 hover:bg-green-700"
-                    style={{ fontFamily: "Noto Sans Devanagari, sans-serif" }}
+                    className="w-full bg-green-600 hover:bg-green-700 interactive-button"
                   >
-                    भाग लें
+                    {t("joinEvent")}
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </Button>
                 </CardContent>
@@ -177,18 +186,20 @@ export default function EventsPage() {
             ))}
           </div>
         </div>
+      </section>
 
-        {/* Recent News */}
-        <div>
-          <h2
-            className="text-3xl font-bold text-gray-800 mb-8"
-            style={{ fontFamily: "Noto Sans Devanagari, sans-serif" }}
-          >
-            {t("recentNews")}
-          </h2>
+      {/* Recent News */}
+      <section className="section-padding bg-slate-50">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold text-slate-900 mb-4">{t("recentNews")}</h2>
+            <p className="text-lg text-slate-600 max-w-2xl mx-auto">
+              {t("recentNewsSubtitle")}
+            </p>
+          </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {recentNews.map((news) => (
-              <Card key={news.id} className="hover:shadow-lg transition-shadow">
+              <Card key={news.id} className="interactive-card">
                 <div className="md:flex">
                   <div className="md:w-1/3">
                     <Image
@@ -201,33 +212,24 @@ export default function EventsPage() {
                   </div>
                   <div className="md:w-2/3 p-6">
                     <div className="flex items-center justify-between mb-2">
-                      <Badge className={getCategoryColor(news.category)}>{news.category}</Badge>
-                      <span
-                        className="text-sm text-gray-500"
-                        style={{ fontFamily: "Noto Sans Devanagari, sans-serif" }}
-                      >
-                        {news.date}
-                      </span>
+                      <Badge className={getCategoryColor(news.category)}>
+                        {news.category}
+                      </Badge>
+                      <span className="text-sm text-slate-500">{news.date}</span>
                     </div>
-                    <h3
-                      className="text-lg font-semibold mb-2"
-                      style={{ fontFamily: "Noto Sans Devanagari, sans-serif" }}
-                    >
+                    <h3 className="text-lg font-bold text-slate-900 mb-2">
                       {news.title}
                     </h3>
-                    <p
-                      className="text-gray-600 text-sm mb-4"
-                      style={{ fontFamily: "Noto Sans Devanagari, sans-serif" }}
-                    >
+                    <p className="text-slate-600 text-sm leading-relaxed">
                       {news.summary}
                     </p>
                     <Button
                       variant="outline"
                       size="sm"
-                      className="text-green-600 border-green-600 hover:bg-green-50 bg-transparent"
-                      style={{ fontFamily: "Noto Sans Devanagari, sans-serif" }}
+                      className="mt-4 text-green-600 border-green-600 hover:bg-green-50 interactive-button bg-white"
                     >
-                      पूरी खबर पढ़ें
+                      {t("readMore")}
+                      <ArrowRight className="ml-2 h-3 w-3" />
                     </Button>
                   </div>
                 </div>
@@ -235,33 +237,61 @@ export default function EventsPage() {
             ))}
           </div>
         </div>
+      </section>
 
-        {/* Newsletter Signup */}
-        <div className="mt-16 bg-green-50 rounded-lg p-8 text-center">
-          <h2
-            className="text-2xl font-bold text-gray-800 mb-4"
-            style={{ fontFamily: "Noto Sans Devanagari, sans-serif" }}
-          >
-            हमारे कार्यक्रमों की जानकारी पाएं
-          </h2>
-          <p className="text-gray-600 mb-6" style={{ fontFamily: "Noto Sans Devanagari, sans-serif" }}>
-            नवीनतम कार्यक्रमों और समाचारों की जानकारी के लिए हमारे न्यूज़लेटर की सदस्यता लें
+      {/* Event Statistics */}
+      <section className="section-padding bg-white">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold text-slate-900 mb-4">{t("eventImpact")}</h2>
+            <p className="text-lg text-slate-600 max-w-2xl mx-auto">
+              {t("eventImpactSubtitle")}
+            </p>
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            {[
+              { number: "50+", label: t("eventsOrganized"), icon: Calendar, color: "from-blue-500 to-blue-600" },
+              { number: "2000+", label: t("peopleReached"), icon: Users, color: "from-red-500 to-red-600" },
+              { number: "100+", label: t("activeVolunteers"), icon: Star, color: "from-green-500 to-green-600" },
+              { number: "95%", label: t("satisfactionRate"), icon: CheckCircle, color: "from-purple-500 to-purple-600" },
+            ].map((stat, index) => (
+              <Card key={index} className="interactive-card text-center">
+                <CardContent className="p-6">
+                  <div
+                    className={`bg-gradient-to-br ${stat.color} w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4`}
+                  >
+                    <stat.icon className="h-8 w-8 text-white" />
+                  </div>
+                  <div className="text-3xl font-bold text-slate-900 mb-2">{stat.number}</div>
+                  <div className="text-slate-600 font-medium">{stat.label}</div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Call to Action */}
+      <section className="section-padding bg-gradient-to-r from-green-600 to-blue-600 text-white">
+        <div className="container mx-auto px-4 text-center">
+          <h2 className="text-4xl font-bold mb-4">{t("joinNextEvent")}</h2>
+          <p className="text-xl mb-8 max-w-2xl mx-auto opacity-90">
+            {t("joinNextEventSubtitle")}
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-md mx-auto">
-            <input
-              type="email"
-              placeholder="आपका ईमेल पता"
-              className="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
-            />
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button size="lg" className="bg-white text-green-600 hover:bg-gray-100 interactive-button shadow-lg">
+              {t("registerForEvents")}
+            </Button>
             <Button
-              className="bg-green-600 hover:bg-green-700"
-              style={{ fontFamily: "Noto Sans Devanagari, sans-serif" }}
+              size="lg"
+              variant="outline"
+              className="border-2 border-white text-white hover:bg-white hover:text-green-600 interactive-button bg-transparent"
             >
-              सदस्यता लें
+              {t("becomeVolunteer")}
             </Button>
           </div>
         </div>
-      </div>
+      </section>
     </div>
   )
 }

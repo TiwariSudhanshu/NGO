@@ -2,138 +2,204 @@
 
 import { useLanguage } from "@/components/language-provider"
 import { Card, CardContent } from "@/components/ui/card"
-import { Target, Eye, Users, Award } from "lucide-react"
+import { Target, Eye, Users, Award, CheckCircle, Star } from "lucide-react"
 import Image from "next/image"
 
 export default function AboutPage() {
   const { t } = useLanguage()
 
   return (
-    <div className="min-h-screen py-12">
-      <div className="container mx-auto px-4">
-        {/* Header */}
-        <div className="text-center mb-16">
-          <h1
-            className="text-4xl font-bold text-gray-800 mb-4"
-            style={{ fontFamily: "Noto Sans Devanagari, sans-serif" }}
-          >
-            {t("aboutTitle")}
-          </h1>
-          <p
-            className="text-xl text-gray-600 max-w-3xl mx-auto"
-            style={{ fontFamily: "Noto Sans Devanagari, sans-serif" }}
-          >
-            सेवा संस्थान की स्थापना 2015 में भोपाल में हुई थी। हमारा उद्देश्य समुदाय की सेवा करना और जरूरतमंद लोगों की मदद करना है।
-          </p>
-        </div>
-
-        {/* About Content */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
-          <div>
-            <Image
-              src="/placeholder.svg?height=400&width=600"
-              alt="About NGO"
-              width={600}
-              height={400}
-              className="rounded-lg shadow-lg"
-            />
-          </div>
-          <div className="space-y-6">
-            <h2
-              className="text-2xl font-semibold text-gray-800"
-              style={{ fontFamily: "Noto Sans Devanagari, sans-serif" }}
-            >
-              हमारी कहानी
-            </h2>
-            <p className="text-gray-600" style={{ fontFamily: "Noto Sans Devanagari, sans-serif" }}>
-              सेवा संस्थान की शुरुआत कुछ समाजसेवी व्यक्तियों के एक छोटे से समूह से हुई थी, जिनका सपना था कि वे अपने समुदाय में सकारात्मक बदलाव
-              लाएं। आज हमारे साथ 100 से अधिक स्वयंसेवक जुड़े हुए हैं।
+    <div className="min-h-screen">
+      {/* Hero Section */}
+      <section className="section-padding-lg bg-gradient-to-br from-blue-50 via-white to-green-50">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h1 className="text-5xl lg:text-6xl font-bold text-slate-900 mb-6 leading-tight">
+              {t("aboutTitle")}
+            </h1>
+            <p className="text-xl text-slate-600 mb-8 leading-relaxed max-w-3xl mx-auto">
+              {t("aboutSubtitle")}
             </p>
-            <p className="text-gray-600" style={{ fontFamily: "Noto Sans Devanagari, sans-serif" }}>
-              पिछले 9 वर्षों में हमने शिक्षा, स्वास्थ्य, और पर्यावरण के क्षेत्र में अनेक परियोजनाओं को सफलतापूर्वक पूरा किया है। हमारा मुख्य
-              कार्यालय भोपाल में स्थित है और हम मध्य प्रदेश के विभिन्न जिलों में काम करते हैं।
-            </p>
+            <div className="flex items-center justify-center space-x-6 text-sm text-slate-600">
+              <div className="flex items-center space-x-2">
+                <CheckCircle className="h-4 w-4 text-green-600" />
+                <span>{t("registeredNGO")}</span>
+              </div>
+              <div className="flex items-center space-x-2">
+                <CheckCircle className="h-4 w-4 text-green-600" />
+                <span>{t("taxBenefits")}</span>
+              </div>
+              <div className="flex items-center space-x-2">
+                <Star className="h-4 w-4 text-yellow-500" />
+                <span>{t("yearsTrusted")}</span>
+              </div>
+            </div>
           </div>
         </div>
+      </section>
 
-        {/* Vision & Mission */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
-          <Card className="hover:shadow-lg transition-shadow">
-            <CardContent className="p-8">
-              <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mb-6">
-                <Eye className="h-8 w-8 text-blue-600" />
-              </div>
-              <h3 className="text-2xl font-semibold mb-4" style={{ fontFamily: "Noto Sans Devanagari, sans-serif" }}>
-                {t("vision")}
-              </h3>
-              <p className="text-gray-600" style={{ fontFamily: "Noto Sans Devanagari, sans-serif" }}>
-                एक ऐसा समाज बनाना जहाँ हर व्यक्ति को शिक्षा, स्वास्थ्य और सम्मानजनक जीवन जीने का अधिकार हो। हमारा सपना है कि हम एक
-                न्यायसंगत और समान समाज का निर्माण करें।
+      {/* About Content */}
+      <section className="section-padding bg-white">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div className="animate-fadeInUp">
+              <Image
+                src="/placeholder.svg?height=400&width=600"
+                alt="About NGO"
+                width={600}
+                height={400}
+                className="rounded-2xl shadow-2xl"
+              />
+            </div>
+            <div className="space-y-6">
+              <h2 className="text-3xl font-bold text-slate-900 mb-6">
+                {t("ourStory")}
+              </h2>
+              <p className="text-lg text-slate-600 leading-relaxed">
+                {t("storyText1")}
               </p>
-            </CardContent>
-          </Card>
-
-          <Card className="hover:shadow-lg transition-shadow">
-            <CardContent className="p-8">
-              <div className="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mb-6">
-                <Target className="h-8 w-8 text-green-600" />
-              </div>
-              <h3 className="text-2xl font-semibold mb-4" style={{ fontFamily: "Noto Sans Devanagari, sans-serif" }}>
-                {t("mission")}
-              </h3>
-              <p className="text-gray-600" style={{ fontFamily: "Noto Sans Devanagari, sans-serif" }}>
-                शिक्षा, स्वास्थ्य और पर्यावरण के क्षेत्र में काम करके समुदाय के जीवन स्तर को बेहतर बनाना। हम गुणवत्तापूर्ण सेवाएं प्रदान करके
-                लोगों को आत्मनिर्भर बनाने में मदद करते हैं।
+              <p className="text-lg text-slate-600 leading-relaxed">
+                {t("storyText2")}
               </p>
-            </CardContent>
-          </Card>
+              <div className="flex items-center space-x-4 mt-8">
+                <div className="bg-green-100 p-3 rounded-full">
+                  <Users className="h-8 w-8 text-green-600" />
+                </div>
+                <div>
+                  <div className="font-bold text-2xl text-slate-900">100+</div>
+                  <div className="text-slate-600">{t("activeVolunteers")}</div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
+      </section>
 
-        {/* Values */}
-        <div className="bg-gray-50 rounded-lg p-8">
-          <h2
-            className="text-3xl font-bold text-center text-gray-800 mb-12"
-            style={{ fontFamily: "Noto Sans Devanagari, sans-serif" }}
-          >
-            हमारे मूल्य
-          </h2>
+      {/* Vision & Mission */}
+      <section className="section-padding bg-slate-50">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold text-slate-900 mb-4">{t("vision")} & {t("mission")}</h2>
+            <p className="text-lg text-slate-600 max-w-2xl mx-auto">
+              {t("valuesSubtitle")}
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <Card className="interactive-card">
+              <CardContent className="p-8">
+                <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mb-6">
+                  <Eye className="h-8 w-8 text-blue-600" />
+                </div>
+                <h3 className="text-2xl font-bold text-slate-900 mb-4">
+                  {t("vision")}
+                </h3>
+                <p className="text-slate-600 leading-relaxed">
+                  {t("visionText")}
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="interactive-card">
+              <CardContent className="p-8">
+                <div className="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mb-6">
+                  <Target className="h-8 w-8 text-green-600" />
+                </div>
+                <h3 className="text-2xl font-bold text-slate-900 mb-4">
+                  {t("mission")}
+                </h3>
+                <p className="text-slate-600 leading-relaxed">
+                  {t("missionText")}
+                </p>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Values */}
+      <section className="section-padding bg-white">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold text-slate-900 mb-4">{t("ourValues")}</h2>
+            <p className="text-lg text-slate-600 max-w-2xl mx-auto">
+              {t("valuesSubtitle")}
+            </p>
+          </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="text-center">
-              <div className="bg-red-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Users className="h-8 w-8 text-red-600" />
-              </div>
-              <h3 className="text-xl font-semibold mb-2" style={{ fontFamily: "Noto Sans Devanagari, sans-serif" }}>
-                सामुदायिक सेवा
-              </h3>
-              <p className="text-gray-600" style={{ fontFamily: "Noto Sans Devanagari, sans-serif" }}>
-                समुदाय की भलाई हमारी प्राथमिकता है
-              </p>
-            </div>
-            <div className="text-center">
-              <div className="bg-yellow-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Award className="h-8 w-8 text-yellow-600" />
-              </div>
-              <h3 className="text-xl font-semibold mb-2" style={{ fontFamily: "Noto Sans Devanagari, sans-serif" }}>
-                पारदर्शिता
-              </h3>
-              <p className="text-gray-600" style={{ fontFamily: "Noto Sans Devanagari, sans-serif" }}>
-                हमारे सभी कार्य पारदर्शी और जवाबदेह हैं
-              </p>
-            </div>
-            <div className="text-center">
-              <div className="bg-purple-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Target className="h-8 w-8 text-purple-600" />
-              </div>
-              <h3 className="text-xl font-semibold mb-2" style={{ fontFamily: "Noto Sans Devanagari, sans-serif" }}>
-                प्रभावशीलता
-              </h3>
-              <p className="text-gray-600" style={{ fontFamily: "Noto Sans Devanagari, sans-serif" }}>
-                हमारे कार्यों का वास्तविक प्रभाव होता है
-              </p>
-            </div>
+            <Card className="interactive-card text-center">
+              <CardContent className="p-8">
+                <div className="bg-red-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
+                  <Users className="h-8 w-8 text-red-600" />
+                </div>
+                <h3 className="text-xl font-bold text-slate-900 mb-4">
+                  {t("communityService")}
+                </h3>
+                <p className="text-slate-600">
+                  {t("communityServiceText")}
+                </p>
+              </CardContent>
+            </Card>
+            <Card className="interactive-card text-center">
+              <CardContent className="p-8">
+                <div className="bg-yellow-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
+                  <Award className="h-8 w-8 text-yellow-600" />
+                </div>
+                <h3 className="text-xl font-bold text-slate-900 mb-4">
+                  {t("transparency")}
+                </h3>
+                <p className="text-slate-600">
+                  {t("transparencyText")}
+                </p>
+              </CardContent>
+            </Card>
+            <Card className="interactive-card text-center">
+              <CardContent className="p-8">
+                <div className="bg-purple-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
+                  <Target className="h-8 w-8 text-purple-600" />
+                </div>
+                <h3 className="text-xl font-bold text-slate-900 mb-4">
+                  {t("effectiveness")}
+                </h3>
+                <p className="text-slate-600">
+                  {t("effectivenessText")}
+                </p>
+              </CardContent>
+            </Card>
           </div>
         </div>
-      </div>
+      </section>
+
+      {/* Impact Statistics */}
+      <section className="section-padding bg-slate-50">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold text-slate-900 mb-4">{t("impactOverYears")}</h2>
+            <p className="text-lg text-slate-600 max-w-2xl mx-auto">
+              {t("impactSubtitle")}
+            </p>
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            {[
+              { number: "500+", label: t("childrenEducated"), icon: Target, color: "from-blue-500 to-blue-600" },
+              { number: "50+", label: t("healthCamps"), icon: Award, color: "from-red-500 to-red-600" },
+              { number: "1000+", label: t("treesPlanted"), icon: Eye, color: "from-green-500 to-green-600" },
+              { number: "100+", label: t("volunteers"), icon: Users, color: "from-purple-500 to-purple-600" },
+            ].map((stat, index) => (
+              <Card key={index} className="interactive-card text-center">
+                <CardContent className="p-6">
+                  <div
+                    className={`bg-gradient-to-br ${stat.color} w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4`}
+                  >
+                    <stat.icon className="h-8 w-8 text-white" />
+                  </div>
+                  <div className="text-3xl font-bold text-slate-900 mb-2">{stat.number}</div>
+                  <div className="text-slate-600 font-medium">{stat.label}</div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
     </div>
   )
 }

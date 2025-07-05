@@ -119,6 +119,26 @@
   @apply bg-white shadow-sm;
 }
 
+/* Remove browser autofill yellow background */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px white inset !important;
+  -webkit-text-fill-color: #1f2937 !important;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+/* Ensure consistent input styling */
+input, textarea, select {
+  background-color: white !important;
+}
+
+input:focus, textarea:focus, select:focus {
+  background-color: white !important;
+  outline: none !important;
+}
+
 /* Loading states */
 .loading-spinner {
   @apply animate-spin rounded-full h-6 w-6 border-b-2 border-green-600;

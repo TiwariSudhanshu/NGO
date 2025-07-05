@@ -3,8 +3,9 @@
 import Link from "next/link"
 import { useLanguage } from "./language-provider"
 import { Button } from "@/components/ui/button"
-import { Heart, Menu, X } from "lucide-react"
+import { Menu, X } from "lucide-react"
 import { useState } from "react"
+import Logo from "./logo"
 
 export default function Header() {
   const { language, setLanguage, t } = useLanguage()
@@ -15,12 +16,7 @@ export default function Header() {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link href="/" className="flex items-center space-x-3 group">
-            <div className="bg-gradient-to-br from-green-500 to-green-600 p-2 rounded-xl group-hover:scale-110 transition-transform duration-300 shadow-lg">
-              <Heart className="h-6 w-6 text-white" />
-            </div>
-            <div className="font-bold text-xl text-slate-800">Seva Sansthan</div>
-          </Link>
+          <Logo />
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
